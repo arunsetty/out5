@@ -19,6 +19,9 @@ exports.post_prods = (req,res,next) => {
     item.remove_prod_from_list().then(() => {
         item.add_prod_to_cart().then(() => {
             res.redirect('/cart');
+        }).catch(err => {item.final_prod_cart().then(() => {
+            res.redirect('/cart')
         }).catch(err => console.log(err));
+    });
     }).catch(err => res.redirect('/prods'));
 };

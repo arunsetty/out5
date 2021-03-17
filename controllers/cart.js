@@ -24,6 +24,6 @@ exports.buy_cart = (req,res,next) => {
                     res.redirect('/orders')
                 }).catch(err => console.log(err));
             }).catch(err => console.log(err));
-        }).catch(err => console.log(err));
+        }).catch(err => res.redirect('/cart'));
     }).catch(err => console.log(err));
 };
