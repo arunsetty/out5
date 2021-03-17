@@ -10,5 +10,4 @@ router.get('/add-product',adminCon.get_test);
 router.post('/add-product',adminCon.post_test);
 
 
-
 module.exports = router;

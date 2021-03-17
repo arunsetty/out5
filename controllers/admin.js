@@ -1,3 +1,4 @@
+const { get_all } = require('../models/prod');
 const Prod = require('../models/prod');
 
 

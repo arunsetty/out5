@@ -1,0 +1,42 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+<%- include('includes/navigation.ejs') %>
+
+<main>
+    <h2>Credits available: <%= credits.rows[0].credit %> </h2>
+    <form action="/cart" method="post">
+        <button type="submit">Buy</button>
+    </form>
+    <% if(data.rows.length == 0){ %>
+        <h1>No Products Found!</h1>
+     <% } else{ %>
+        <div class="grid">
+            <% for (var i=0; i < data.rows.length;  i++ ) { %>
+                <article class="card product-item">
+                    <header class="card__header">
+                        <h1 class="product__title">
+                            <%= data.rows[i].title %>
+                        </h1>
+                    </header>
+                    <div class="card__image">
+                        <img src= <%= data.rows[i].image %> height="150px" alt="image">
+                    </div>
+                    <div class="card__content">
+                        <h3 class="product__price">$
+                            <%= data.rows[i].price %>
+                        </h3>
+                        <h3 class="product__description">Qt Ord:
+                            <%= data.rows[i].quantity %>
+                        </h3>
+                    </div>
+                </article>
+                <% } %>
+        </div>
+      <% } %>
+</main>
+<%- include('includes/end.ejs') %>
+<!-- done-->

@@ -14,7 +14,6 @@ module.exports = class Prod{
     }
     static get_all(){
         return pool.query('SELECT * FROM products');
-
     }
 
 };
